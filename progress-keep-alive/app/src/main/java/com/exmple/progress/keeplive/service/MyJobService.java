@@ -49,13 +49,30 @@ public class MyJobService extends JobService {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         ComponentName componentName = new ComponentName(this, MyJobService.class);
-        JobInfo job = new JobInfo.Builder(id, componentName)
-                .setPeriodic(1000)
-                .setPersisted(true)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)//任意网络
-                .build();
-        //调用schedule
-        mJobScheduler.schedule(job);
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            //7.0以及7.0以上
+            JobInfo job = new JobInfo.Builder(id, componentName)
+                    .setMinimumLatency(5 * 1000)
+                    .setOverrideDeadline(5 * 1000)
+                    .setRequiresDeviceIdle(true)
+                    .setRequiresCharging(true)
+                    .setPersisted(true)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)//任意网络
+                    .build();
+            //调用schedule
+            mJobScheduler.schedule(job);
+        }else if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            //5.0到6.0
+            JobInfo job = new JobInfo.Builder(id, componentName)
+                    .setPeriodic(1000)
+                    .setPersisted(true)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)//任意网络
+                    .build();
+            //调用schedule
+            mJobScheduler.schedule(job);
+        }
+
         return START_STICKY;
     }
 

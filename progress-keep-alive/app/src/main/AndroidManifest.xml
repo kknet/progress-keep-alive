@@ -28,6 +28,12 @@
             android:name=".service.MyJobService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <!-- 系统启动完成后会调用-->
+                <action android:name="android.intent.action.BOOT_COMPLETED">
+                </action>
+            </intent-filter>
+
         </service>
         <service
             android:name=".service.RemoteMountService"
