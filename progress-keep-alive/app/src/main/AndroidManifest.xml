@@ -22,7 +22,9 @@
         </activity>
 
 
-        <service android:name=".service.LocalMountService" />
+        <service android:name=".service.LocalMountService"
+            android:enabled="true"
+            android:exported="true"/>
 
         <service
             android:name=".service.MyJobService"
@@ -37,8 +39,22 @@
         </service>
         <service
             android:name=".service.RemoteMountService"
-            android:process=".RemoteMountService" />
+            android:process=".RemoteMountService"
+            android:enabled="true"
+            android:exported="true"/>
 
+
+
+        <receiver android:name=".broadcast.MyBroadcastReceiver"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+
+            </intent-filter>
+
+        </receiver>
 
     </application>
 
