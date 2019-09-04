@@ -10,7 +10,7 @@ import com.exmple.progress.keeplive.service.MyJobService;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "LocalMountService.class";
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
