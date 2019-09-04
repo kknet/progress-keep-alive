@@ -16,12 +16,12 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.intent.action.SCREEN_ON")) {
             System.out.println("—— SCREEN_ON ——");
-            Intent intentServcie=new Intent(context, LocalMountService.class);
+            Intent intentServcie = new Intent(context, LocalMountService.class);
             context.startService(intentServcie);
 
         } else if (intent.getAction().equals("android.intent.action.SCREEN_OFF")) {
             System.out.println("—— SCREEN_OFF ——");
-        }else if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
+        } else if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             //开启广播
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 Intent intentA = new Intent(context, LocalMountService.class);
