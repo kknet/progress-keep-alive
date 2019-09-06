@@ -52,7 +52,12 @@
             </intent-filter>
 
         </receiver>
-
+        <receiver android:name="com.exmple.progress.xiaoniu.receiver.NotificationClickReceiver"/>
+        <activity android:name="com.exmple.progress.xiaoniu.activity.OnePixelActivity" android:theme="@style/onePixelActivity" android:launchMode="singleInstance" android:excludeFromRecents="true"/>
+        <service android:name="com.exmple.progress.xiaoniu.service.LocalService"/>
+        <service android:name="com.exmple.progress.xiaoniu.service.HideForegroundService"/>
+        <service android:name="com.exmple.progress.xiaoniu.service.JobHandlerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.exmple.progress.xiaoniu.service.RemoteService" android:process=":remote"/>
     </application>
 
 </manifest>
