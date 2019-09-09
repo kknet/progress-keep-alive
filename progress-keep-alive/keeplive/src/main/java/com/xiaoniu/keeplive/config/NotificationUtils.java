@@ -94,7 +94,7 @@ public class NotificationUtils extends ContextWrapper {
         } else {
             notification = notificationUtils.getNotification_25(title, content, icon,intent).build();
         }
-       notification.contentView = new RemoteViews(context.getPackageName(), R.layout.notificition_layout);
+//       notification.contentView = new RemoteViews(context.getPackageName(), R.layout.notificition_layout);
         return notification;
     }
 }
