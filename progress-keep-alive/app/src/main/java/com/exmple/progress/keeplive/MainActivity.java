@@ -18,13 +18,6 @@ import com.exmple.progress.keeplive.utils.SettingUtils;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "LocalMountService.class";
-<<<<<<< HEAD
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-=======
-//
->>>>>>> 729852307100b09984cba3813c9a53c0d2c6541f
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

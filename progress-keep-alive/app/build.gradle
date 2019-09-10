@@ -25,7 +25,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-<<<<<<< HEAD
 
 //PushSDK必须依赖基础组件库，所以需要加入对应依赖
     implementation 'com.umeng.umsdk:common:1.5.4'
@@ -33,7 +32,5 @@ dependencies {
     implementation 'com.umeng.umsdk:utdid:1.1.5.3'
 //PushSDK
     implementation 'com.umeng.umsdk:push:6.0.1'
-=======
     implementation project(path: ':keeplive')
->>>>>>> 729852307100b09984cba3813c9a53c0d2c6541f
 }

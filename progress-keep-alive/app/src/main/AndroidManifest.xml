@@ -5,7 +5,6 @@
     <permission android:name="android.permission.BIND_JOB_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
-        android:name=".MyApplication"
         android:allowBackup="true"
         android:name=".KeepLiveApplication"
         android:icon="@mipmap/ic_launcher"
@@ -63,11 +62,8 @@
             </intent-filter>
 
         </receiver>
-<<<<<<< HEAD
 
         <service android:name=".service.LForegroundService"></service>
-=======
->>>>>>> 729852307100b09984cba3813c9a53c0d2c6541f
     </application>
 
 </manifest>
