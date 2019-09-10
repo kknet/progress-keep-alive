@@ -42,10 +42,6 @@ public class WindowActivity extends AppCompatActivity {
         attrParams.width = 10;
         mWindow.setAttributes(attrParams);
         ScreenManager.getInstance(this).setSingleActivity(this);
-
-//        Intent intentAlive = new Intent(this, WindowService.class);
-//        startService(intentAlive);
-
         mScreenListener = new ScreenReceiverUtil(this);
         mScreenManager = ScreenManager.getInstance(this);
         mScreenListener.setScreenReceiverListener(mScreenListenerer);

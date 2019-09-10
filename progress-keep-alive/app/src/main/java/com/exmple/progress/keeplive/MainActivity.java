@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -18,6 +19,7 @@ import com.exmple.progress.keeplive.utils.SettingUtils;
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "LocalMountService.class";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +37,23 @@ public class MainActivity extends AppCompatActivity {
 //            Intent intent = new Intent(this, MyJobService.class);
 //            startService(intent);
 //        } else {
-////            Intent intent = new Intent(this, LForegroundService.class);
-////            startForegroundService(intent);
-////
-////            NotificationManager noti = (NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+//            Intent intent = new Intent(this, LForegroundService.class);
+//            startForegroundService(intent);
 //
-//            Intent intent=new Intent(this,WindowActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
+//
 //        }
 
-        Intent intent=new Intent(this,WindowActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            Intent intent = new Intent(this, LForegroundService.class);
+            startForegroundService(intent);
+        }else {
+            Intent intent = new Intent(this, LForegroundService.class);
+            startService(intent);
+        }
+
+//        Intent intent=new Intent(this,WindowActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
 
 
     }
