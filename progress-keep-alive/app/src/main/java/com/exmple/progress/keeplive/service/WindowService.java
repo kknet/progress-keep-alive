@@ -1,10 +1,13 @@
 package com.exmple.progress.keeplive.service;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -47,6 +50,11 @@ public class WindowService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("0","channelTest",NotificationManager.IMPORTANCE_DEFAULT);
+            startForeground(1, new Notification());
+        }
 
 //        注册锁屏广播监听器
         mScreenListener = new ScreenReceiverUtil(this);

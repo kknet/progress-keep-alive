@@ -3,6 +3,7 @@ package com.exmple.progress.keeplive.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.exmple.progress.keeplive.WindowActivity;
 
@@ -53,6 +54,8 @@ public class ScreenManager {
             Activity activity = mActivity.get();
             if (activity != null) {
                 activity.finish();
+            }else {
+                Log.i("WindowActivity.class","is null");
             }
         }
     }

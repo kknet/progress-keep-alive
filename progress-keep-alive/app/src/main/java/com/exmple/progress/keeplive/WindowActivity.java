@@ -45,9 +45,6 @@ public class WindowActivity extends AppCompatActivity {
         mScreenListener = new ScreenReceiverUtil(this);
         mScreenManager = ScreenManager.getInstance(this);
         mScreenListener.setScreenReceiverListener(mScreenListenerer);
-
-
-
     }
 
 
@@ -83,7 +80,7 @@ public class WindowActivity extends AppCompatActivity {
 
                 while (true){
                     if(System.currentTimeMillis()-mTime>5000){
-                        Log.i(TAG,"running");
+//                        Log.i(TAG,"running");
                         mTime=System.currentTimeMillis();
                     }
 

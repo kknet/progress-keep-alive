@@ -10,11 +10,10 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
-import com.exmple.progress.keeplive.service.LForegroundService;
-import com.exmple.progress.keeplive.service.LocalMountService;
-import com.exmple.progress.keeplive.service.MyJobService;
-import com.exmple.progress.keeplive.utils.SettingUtils;
+import com.exmple.progress.keeplive.service.WindowService;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "LocalMountService.class";
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        }
 
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             Intent intent = new Intent(this, LForegroundService.class);
             startForegroundService(intent);
@@ -47,13 +47,29 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LForegroundService.class);
             startService(intent);
         }
+*/
+
 
 //        Intent intent=new Intent(this,WindowActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        startActivity(intent);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Intent intentAlive = new Intent(this, WindowService.class);
+            startForegroundService(intentAlive);
+        }else {
+            Intent intentAlive = new Intent(this, WindowService.class);
+            startService(intentAlive);
+        }
 
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"show ",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
     /**
      * 进入白名单列表上一层级
